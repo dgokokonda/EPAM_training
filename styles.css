@@ -85,6 +85,10 @@ button:active {
   float: left;
   margin-bottom:0;
 }
+.header .fa {
+  margin-right:20px;
+  margin-top:-3px;
+}
 .menu {
   float: left;
   width: 350px;
@@ -98,10 +102,7 @@ button:active {
   display: none;
   position: absolute;
 }
-.navbar li:hover ul {
-  /**/
-  display: block;
-}
+
 .navbar ul li {
   float: none;
 }
@@ -128,12 +129,6 @@ button:active {
   color: white;
   background-color: black;
 }
-.navbar a:hover {
-  color: white;
-}
-.navbar .dropdown a:hover {
-  background-color: black;
-}
 .caret {
   display: inline-block;
   width: 0;
@@ -154,10 +149,6 @@ button:active {
   display: block;
   padding: 5px;/*ширина ячеек подменю*/
 }
-.navbar .dropdown-menu li a:hover {
-  background-color: #f0f0f0;
-  color: black;
-}
 
 .navbar .dropdown-menu {
   display: none;
@@ -166,6 +157,19 @@ button:active {
   width: 150px;
   padding: 5px 0;
   margin: 12px 0 0;
+}
+.navbar li:active ul {
+  display: block;
+}
+.navbar a:hover {
+  color: white;
+}
+.dropdown a:hover {
+  background-color: black;
+}
+.dropdown-menu li a:hover {
+  background-color: #f0f0f0;
+  color: black;
 }
 .dropdown-menu > li > a:hover {
   color: #262626;
@@ -201,8 +205,11 @@ button:active {
   width: 100%;
 }
 .GreenBox h1 {
-  padding: 60px 30px 0;
+  padding-top: 60px;
   margin: 0 auto 5px;
+}
+.GreenBox .fa {
+  padding-right:20px;
 }
 .GreenBox p {
   margin: 0 0 15px;
@@ -260,15 +267,15 @@ button:active {
   margin-left: 0;
   margin-right: 0;
 }
-.col-md-4 a[name='link'] {
-  text-decoration: none;
-}
-.col-md-4 a[name='link']:hover {
-  color: #1b5285;
-  text-decoration: underline;
-}
-.gallery-box h5 {
+.gallery-box .link {
   color: #4086c4;
+  text-decoration: none;
+  font-size: 22px;
+}
+.gallery-box .link:hover {
+  color: #17619c;
+  text-decoration: underline;
+  font-size: 22px;
 }
 .footer {
   color:black;
@@ -283,4 +290,9 @@ button:active {
   text-align: left;
   height: 150px;
   margin-bottom: 10px;
+}
+.footer .fa {
+  float:left;
+  margin-top:10px;
+  margin-right:3px;
 }

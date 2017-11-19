@@ -6,48 +6,49 @@
     <title>Corporate 1</title>
     <link href="png/apple-touch-icon.png" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" media="screen" href="styles.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
     <div class="header">
         <div class="container">
             <div class="nav logo">
-                <p>Logo</p>
+                <p><i class="fa fa-cubes fa-2x" aria-hidden="true"></i></p>
             </div>
             <div class="nav menu">
-                <ul class="navbar">
-                    <li class="active">
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Products</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle"
-                            data-toggle="dropdown"
-                            role="button"
-                            aria-haspopup="true"
-                            aria-expanded="false">Services
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu"
-                            aria-labelledby="dLabel">
-                            <li>
-                                <a href="#">Engage</a>
-                            </li>
-                            <li>
-                                <a href="#">Pontificate</a>
-                            </li>
-                            <li>
-                                <a href="#">Synergize</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+                    <ul class="navbar">
+                        <li class="active">
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Products</a>
+                        </li>
+                        <li class="dropdown"  onclick="myFunction()" >
+                            <a href="#" class="dropdown-toggle"
+                                data-toggle="dropdown"
+                                role="button"
+                                aria-haspopup="true"
+                                aria-expanded="false">Services
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu"
+                                aria-labelledby="dLabel">
+                                <li>
+                                    <a href="#">Engage</a>
+                                </li>
+                                <li>
+                                    <a href="#">Pontificate</a>
+                                </li>
+                                <li>
+                                    <a href="#">Synergize</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             <div class="nav search">
                 <input type="text"
                     name="search">
@@ -59,7 +60,7 @@
 
     <div class="GreenBox">
         <div class="container">
-            <h1>Dramatically Engage</h1>
+            <h1><i class="fa fa-signal" aria-hidden="true"></i>Dramatically Engage</h1>
             <p>Objectively innovate empowered manufactured products whereas parallel
                 platforms.
             </p>
@@ -91,10 +92,7 @@
                             src="#"
                             alt="700x300">
                     </a>
-                    <a href="#"
-                        name="link">
-                        <h5>Efficiently Unleash</h5>
-                    </a>
+                    <a href="#" class="link">Efficiently Unleash</a>
 
                     <p style="color: #979797">Collaboratively administrate empowered markets via plug-and-play
                         networks. Dynamically procrastinate B2C users after installed
@@ -107,10 +105,7 @@
                             src="#"
                             alt="700x300">
                     </a>
-                    <a href="#"
-                        name="link">
-                        <h5>Completely Synergize</h5>
-                    </a>
+                    <a href="#" class="link">Completely Synergize</a>
 
                     <p style="color: #979797">Dramatically maintain clicks-and-mortar solutions without functional
                         solutions. Efficiently unleash cross-media information without
@@ -123,10 +118,7 @@
                             src="#"
                             alt="700x300">
                     </a>
-                    <a href="#"
-                        name="link">
-                        <h5>Dynamically Procrastinate</h5>
-                    </a>
+                    <a href="#" class="link">Dynamically Procrastinate</a>
 
                     <p style="color: #979797">Professionally cultivate one-to-one customer service with robust
                         ideas. Completely synergize resource taxing relationships
@@ -142,7 +134,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="block"><h5>Dynamically Procrastinate</h5>
+                    <div class="block"><i class="fa fa-cubes fa-lg" aria-hidden="true"></i><h5>Dynamically Procrastinate</h5>
                     <p>Collaboratively administrate empowered markets via plug-and-play
                         networks. Dynamically procrastinate B2C users after installed
                         base benefits. Dramatically visualize customer directed convergence
@@ -151,7 +143,7 @@
                     <a href="#" style="text-decoration: none"><button>Procrastinate</button></a>
                 </div>
                 <div class="col-md-4">
-                    <div class="block"><h5>Efficiently Unleash</h5>
+                    <div class="block"><i class="fa fa-snowflake-o fa-lg" aria-hidden="true"></i><h5>Efficiently Unleash</h5>
                     <p>Dramatically maintain clicks-and-mortar solutions without functional
                         solutions. Efficiently unleash cross-media information without
                         cross-media value. Quickly maximize timely deliverables for
@@ -159,7 +151,7 @@
                         <a href="#" style="text-decoration: none"><button>Unleash</button></a>
                 </div>
                 <div class="col-md-4">
-                    <div class="block"><h5>Completely Synergize</h5>
+                    <div class="block"><i class="fa fa-leaf fa-lg" aria-hidden="true"></i><h5>Completely Synergize</h5>
                     <p>Professionally cultivate one-to-one customer service with robust
                         ideas. Completely synergize resource taxing relationships
                         via premier niche markets. Dynamically innovate resource-leveling
@@ -180,6 +172,19 @@
             <p style="color: #979797; line-height:0.5">Copyright © Example.com 2015</p>
         </p>
     </div>
+    <script>
+         var i = false;
+         var dropdowns= document.getElementsByClassName('dropdown-menu');
+         function myFunction() {
+            i = !i;
+            if (i) {
+                dropdowns[0].style.display = "block";
+            }
+            else {
+                dropdowns[0].style.display = "none";
+            }
+         }
+    </script>
 
 </body>
 
