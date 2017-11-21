@@ -1,0 +1,83 @@
+body {
+
+background: -webkit-radial-gradient(center, ellipse cover, #ede7b8 1%,#ede7b8 1%,#ffad8f 16%,#ffad8f 26%,#ffac59 47%,#ffac59 47%,#dd5a2a 70%,#f7bb2f 90%,#7f413d 100%); /* Chrome10-25,Safari5.1-6 */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ede7b8', endColorstr='#7f413d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.object {
+  width: 70px;
+  height: 70px;
+  border-radius: 50px;
+  background:radial-gradient(at center, orange, #ffff66);
+  box-shadow:0 0 20px white;
+  position:absolute;
+  left: 600px;
+  top: 360px;
+}
+.rotate1 {
+  position:absolute;
+  left: 570px;
+  top: 60px;
+  transform: rotate(45deg) translateX(150px) rotate(-45deg);
+  -webkit-animation: myRotate1 6s linear infinite; /* Chrome, Safari 5 */
+  -moz-animation: myRotate1 6s linear infinite; /* Firefox 5-15 */
+  -o-animation: myRotate1 6s linear infinite; /* Opera 12+ */
+  animation: myRotate1 6s linear infinite; /* Chrome, Firefox 16+, 
+  IE 10+, Safari 5 */
+}
+#rotate {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  box-shadow:0 0 5px #ebc2af;
+  background: linear-gradient(45deg, red, #9999ff);
+  margin-top: 280px;
+  margin-left: calc(80% - 30px);
+  animation-name: myRotate;
+  animation-duration: 6s;
+  /*animation-direction: alternate-reverse;*/
+  animation-iteration-count: infinite;
+  position: relative;
+}
+
+
+@keyframes myRotate {
+
+  20%   { 
+    width: 80px;
+    height: 80px;
+    border-radius: 0;
+    background: linear-gradient(300deg, #3cb371 50%, #1959d1)
+    transform: scale(.8);
+    transition-timing-function: linear;
+  }
+  40%   { 
+    background: radial-gradient(at center, rgba(243,197,189,1) 0%,rgba(234,40,3,1) 36%,rgba(234,40,3,1) 36%,rgba(232,108,87,1) 48%,rgba(255,102,0,1) 75%,rgba(199,34,0,1) 100%);
+    transform: scale(1);
+  }
+  35% {
+    transform: skewX(45deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  60% { 
+    border-radius:0;
+    background: linear-gradient(to right, rgba(243,197,189,1) 0%,rgba(234,40,3,1) 36%,rgba(234,40,3,1)      36%,rgba(232,108,87,1) 48%,rgba(255,102,0,1) 75%,rgba(199,34,0,1) 100%);
+  }
+  75% {
+    filter: opacity(100%); 
+    width:80px;
+    height:80px;
+  }
+  90% {
+    filter: opacity(30%);
+  }
+
+}
+
+@keyframes myRotate1 {
+ from {  transform: rotate(0deg) translateX(150px) rotate(0deg); }
+ to {  transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+}
+
