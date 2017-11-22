@@ -1,0 +1,136 @@
+h2 {
+  margin: 30px;
+  font-size: 54px;
+  font-family: 'Indie Flower', cursive;
+  text-align: center;
+}
+form {
+
+  width: 700px;
+  height:600px;
+  margin: 10px auto;
+  opacity: 0.75;
+}
+fieldset {
+  border: 1px solid #f3f3f3;
+  background: white;
+  padding: 15px;
+}
+
+label {
+  font-family: Roboto, Arial, sans-serif;
+}
+input,
+textarea {
+  font-family: 'Noto Serif', serif;
+  font-size:22px;
+  padding: 20px 20px 5px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+.row input {
+  width: 300px;
+}
+/*Разделители полей ввода от*/
+.item .price {
+  border-right: 2px solid #e0e0e0;
+  border-top: 2px solid #e0e0e0;
+  border-bottom: 2px solid #e0e0e0; 
+  border-left:none;
+ }
+ 
+.item .location {
+  border-top: 2px solid #e0e0e0; 
+  border-bottom: 2px solid #e0e0e0; 
+  border-right: none;
+  border-left:none;
+ }
+ .item .title,
+ .item .description {
+   border: none;
+ }
+/*... и до этого коммента*/
+
+.example-form textarea,
+.example-form .item .title {
+  width:94%;
+  overflow: hidden;
+}
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+input:focus {
+  outline:none;
+  border-bottom: 1px solid #3b3b3b;
+  transition: padding 0.25s;
+}
+textarea:focus {
+  outline:none;
+  border-bottom: 1px solid #3b3b3b;
+  transition: padding 0.25s;
+}
+.row {
+  display: flex;
+}
+.item {
+  position: relative;
+}
+.item .description {
+  height: 30px;
+}
+input + label,
+textarea + label {
+  color: #cccccc;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  left: 15px;
+  top: 18px;
+  pointer-events: none;
+  transition: .3s ease all;
+  opacity: 0;
+}
+
+input:focus + label,
+textarea:focus + label {
+  color:#1345eb;
+  top: 3px;
+  left:2px;
+  opacity: 1;
+  font-size:14px;
+  font-weight:600;
+}
+button {
+  height: 35px;
+  width:100px;
+  font-size: 18px;
+  background-color: #68b12f;
+  color: #b9b9b9;
+  background: linear-gradient(to bottom, #ffffff 0%,rgba(236,246,246,1) 50%,rgba(214,236,236,1) 51%,rgba(243,249,249,1) 100%);
+  border: 1px solid #bddfd6;
+  border-bottom: 1px solid #a1c4bb;
+  border-radius: 4px;
+  margin: 20px 0 10px 30px;
+  font-weight: 300;
+  text-shadow: 0 -1px 0 #379989;
+}
+button:hover {
+  opacity: 0.85;
+  cursor: pointer;
+}
+button:active {
+  color: #888888;
+  border: 1px solid #a1c4bb;
+  box-shadow: 0 0 5px 3px #d5edf0 inset;
+  outline:none;
+}
+.fa-long-arrow-right {
+  margin-top: 3px;
+  margin-left: 7px;
+  color: #b9b9b9;
+}
+.fa-long-arrow-right:active {
+  color: #888;
+}
