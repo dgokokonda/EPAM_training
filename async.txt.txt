@@ -1,0 +1,330 @@
+*{
+    font-family: Areal;
+}
+.b-container{
+    width:200px;
+    height:150px;
+    background-color: #ccc;
+    margin:0px auto;
+    padding:10px;
+    font-size:30px;
+    color: #fff;
+}
+.b-popup{
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+}
+.b-popup .b-popup-content{
+    margin:40px auto 0px auto;
+    width:100px;
+    height: 40px;
+    padding:10px;
+    background-color: #c5c5c5;
+    border-radius:5px;
+    box-shadow: 0px 0px 10px #000;
+}
+
+
+<div class="b-container">
+    Sample Text
+</div>
+<div class="b-popup">
+    <div class="b-popup-content">
+        Text in Popup
+    </div>
+</div>
+____
+<h1>Popup/Modal Windows without JavaScript</h1>
+<div id="wrapper">
+  <p><a class="button" href="#popup1">Click Me</a></p>
+	<p><a class="button" href="#popup2">Click Me Too</a></p>
+</div>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<h2>Info box</h2>
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+			<p>This is done totally without JavaScript. Just HTML and CSS.</p>
+		</div>
+	</div>
+</div>
+
+<div id="popup2" class="overlay light">
+	<a class="cancel" href="#"></a>
+	<div class="popup">
+		<h2>What the what?</h2>
+		<div class="content">
+      <p>Click outside the popup to close.</p>
+		</div>
+	</div>
+</div>
+
+body {
+  font-family: Arial, sans-serif;
+	background: #ddd;
+}
+
+h1 {
+	text-align: center;
+	font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+	color: #333;
+	text-shadow: 0 1px 0 #fff;
+	margin: 50px 0;
+}
+
+#wrapper {
+	width: 100px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 20px;
+	border: 10px solid #aaa;
+	border-radius: 15px;
+	background-clip: padding-box;
+	text-align: center;
+}
+
+.button {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	padding: 5px 10px;
+	border: 1px solid #aaa;
+	background-color: #eee;
+	background-image: linear-gradient(top, #fff, #f0f0f0);
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+	color: #666;
+	text-decoration: none;
+	text-shadow: 0 1px 0 #fff;
+	cursor: pointer;
+	transition: all 0.2s ease-out;
+  &:hover {
+    border-color: #999;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  }
+  &:active {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.25) inset;
+  }
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+	transition: opacity 200ms;
+  visibility: hidden;
+	opacity: 0;
+	&.light {
+    background: rgba(255,255,255,0.5);
+  }
+  .cancel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+  }
+  &:target {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.popup {
+	margin: 75px auto;
+	padding: 20px;
+	background: #fff;
+	border: 1px solid #666;
+	width: 300px;
+	box-shadow: 0 0 50px rgba(0,0,0,0.5);
+	position: relative;
+  .light & {
+    border-color: #aaa;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  }
+  h2 {
+    margin-top: 0;
+    color: #666;
+    font-family: "Trebuchet MS", Tahoma, Arial, sans-serif;
+  }
+  .close {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 20px;
+    right: 20px;
+    opacity: 0.8;
+    transition: all 200ms;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #666;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .content {
+    max-height: 400px;
+    overflow: auto;
+  }
+  p {
+    margin: 0 0 1em;
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+____
+document.querySelector('.button')=event.target;
+button.addEventListener('click', init());
+
+function debounce(func,timer) {
+  return function() {
+    var timerId= setTimeout(func, 500);
+  }
+  clearTimeout(timerId);
+}
+
+function clickButton() {
+  
+}
+------
+Важная альтернатива setInterval – рекурсивный setTimeout:
+
+
+
+
+
+
+
+
+
+/** вместо:
+var timerId = setInterval(function() {
+  alert( "тик" );
+}, 2000);
+*/
+
+var timerId = setTimeout(function tick() {
+  alert( "тик" );
+  timerId = setTimeout(tick, 2000);
+}, 2000);
+
+
+
+
+
+
+
+
+
+
+В коде выше следующее выполнение планируется сразу после окончания предыдущего.
+Рекурсивный setTimeout – более гибкий метод тайминга, чем setInterval, так как время до следующего выполнения можно запланировать по-разному, в зависимости от результатов текущего.
+Рекурсивный setTimeout гарантирует паузу между вызовами, setInterval – нет.
+При setInterval внутренний таймер будет срабатывать чётко каждые 100 мс и вызывать func(i):
+Реальная пауза между вызовами func при setInterval меньше, чем указана в коде!
+Это естественно, ведь время работы функции никак не учитывается, оно «съедает» часть интервала.
+Возможно и такое что func оказалась сложнее, чем мы рассчитывали и выполнялась дольше, чем 100 мс.
+Если функция и выполняется дольше, чем пауза setInterval, то вызовы будут происходить вообще без перерыва.
+
+При рекурсивном setTimeout задержка всегда фиксирована и равна 100 мс.
+Это происходит потому, что каждый новый запуск планируется только после окончания текущего.
+
+Для setTimeout – внутренняя ссылка исчезнет после исполнения функции.
+Для setInterval – ссылка исчезнет при очистке таймера.
+
+Вывод чисел каждые 100 мс
+
+важность: 5
+Напишите функцию printNumbersInterval(), которая последовательно выводит в консоль числа от 1 до 20, с интервалом между числами 100 мс. То есть, весь вывод должен занимать 2000 мс, в течение которых каждые 100 мс в консоли появляется очередное число.
+function printNumbersInterval() {
+  var i = 1;
+  var timerId = setInterval(function() {
+    console.log(i);
+    if (i == 20) clearInterval(timerId);
+    i++;
+  }, 100);
+}
+
+function printNumbersTimeout20_100() {
+  var i = 1;
+  var timerId = setTimeout(function go() {
+    console.log(i);
+    if (i < 20) setTimeout(go, 100);
+    i++;
+  }, 100);
+}
+
+// вызов
+printNumbersTimeout20_100();
+____
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    div {
+      height: 18px;
+      margin: 1px;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <input type="button" id="start" value="Старт">
+  <input type="button" id="stop" value="Стоп" disabled>
+
+  <script>
+    for (var i = 0; i <= 20; i += 2) {
+      document.write('<div>' + i + '</div>');
+    }
+
+    var startButton = document.getElementById('start');
+    var stopButton = document.getElementById('stop');
+
+    var timers = [];
+
+    stopButton.onclick = function() {
+      startButton.disabled = false;
+      stopButton.disabled = true;
+
+      for (var i = 0; i < timers.length; i++) clearInterval(timers[i]);
+      timers = [];
+    }
+
+    startButton.onclick = function() {
+      startButton.disabled = true;
+      stopButton.disabled = false;
+
+      var divs = document.getElementsByTagName('div');
+      for (var i = 0; i < divs.length; i++) {
+        animateDiv(divs, i);
+      }
+    }
+
+    function animateDiv(divs, i) {
+      var div = divs[i],
+        speed = div.innerHTML;
+      timers[i] = setInterval(function() {
+        div.style.width = (parseInt(div.style.width || 0) + 2) % 400 + 'px'
+      }, speed);
+    }
+  </script>
+
+</body>
+
+</html>
+
+
+// вызов
+printNumbersInterval();
