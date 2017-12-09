@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Calculator(with Eval)</title>
+    <link rel="stylesheet"
+        href="main.css">
+</head>
+
+<body>
+    <div class="calculator">
+        <!-- CALCULATOR FORM -->
+        <form class="calculator__form">
+            <!-- CALCULATOR ROW -->
+            <div class="calculator__row">
+                <input class="calculator__display"
+                    id="display"
+                    type="text" />
+            </div>
+            <!-- CALCULATOR ROW -->
+            <div class="calculator__row">
+                <button type="button"
+                    value="1"
+                    onclick='a("1")'
+                    class="calculator__key calculator__button">1</button>
+                <button type="button"
+                    value="2"
+                    onclick='a("2")'
+                    class="calculator__key calculator__button">2</button>
+                <button type="button"
+                    value="3"
+                    onclick='a("3")'
+                    class="calculator__key calculator__button">3</button>
+                <button type="button"
+                    value="+"
+                    onclick='add("+")'
+                    class="calculator__key calculator__clear">+</button>
+            </div>
+            <!-- CALCULATOR ROW -->
+            <div class="calculator__row">
+                <button type="button"
+                    value="4"
+                    onclick='a("4")'
+                    class="calculator__key calculator__button">4</button>
+                <button type="button"
+                    value="5"
+                    onclick='a("5")'
+                    class="calculator__key calculator__button">5</button>
+                <button type="button"
+                    value="6"
+                    onclick='a("6")'
+                    class="calculator__key calculator__button">6</button>
+                <button type="button"
+                    value="-"
+                    onclick='substract("-")'
+                    class="calculator__key calculator__button">-</button>
+            </div>
+            <!-- CALCULATOR ROW -->
+            <div class="calculator__row">
+                <button type="button"
+                    value="7"
+                    onclick='a("7")'
+                    class="calculator__key calculator__button">7</button>
+                <button type="button"
+                    value="8"
+                    onclick='a("8")'
+                    class="calculator__key calculator__button">8</button>
+                <button type="button"
+                    value="9"
+                    onclick='a("9")'
+                    class="calculator__key calculator__button">9</button>
+                <button type="button"
+                    value="*"
+                    onclick='multiply("*")'
+                    class="calculator__key calculator__button">*</button>
+            </div>
+            <!-- CALCULATOR ROW -->
+            <div class="calculator__row">
+                <button type="button"
+                    value="c"
+                    onclick='reset()'
+                    class="calculator__key calculator__clear">C</button>
+                <button type="button"
+                    value="0"
+                    onclick='a("0")'
+                    class="calculator__key calculator__button">0</button>
+                <button type="button"
+                    value="="
+                    onclick='result()'
+                    class="calculator__key calculator__button">=</button>
+                <button type="button"
+                    value="/"
+                    onclick='divide("/")'
+                    class="calculator__key calculator__button">/</button>
+            </div>
+
+        </form>
+    </div>
+    <script src="calc_this.js"></script>
+</body>
+
+</html>
