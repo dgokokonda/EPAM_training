@@ -109,11 +109,6 @@ function action() {
     elem.id = 'btn';
   });
 
-  var operands = ['', ''];
-  var curOperands = 0;
-  var currentFunc = null;
-  var isOperator = true;
-
   keys.forEach(function(element, index) {
     element.addEventListener('click', function(e) {
       if (event.target.className === 'num') {
