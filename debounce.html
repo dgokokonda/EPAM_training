@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Async with setTimeout</title>
+</head>
+<body>
+  <style type="text/css" media="all">
+      div {
+      height: 28px;
+      width:40px;
+      margin: 50px;
+      background-color: lightCyan;
+      border:1px dashed darkCyan;
+      border-radius:50%;
+      text-align:center;
+      line-height:25px;
+      cursor:pointer;
+      }
+      div:hover {
+        background:cyan;
+      }
+      div:active {
+        background:darkCyan;
+      }
+    </style>
+    <script>
+      var i=0;
+      var div = document.createElement('div');
+      div.innerHTML = i;
+      document.body.appendChild(div);
+      div.addEventListener('click',debounce(click,500));
+
+      function debounce(func,timer) {
+        var counter=0;
+        return function() {
+          if(counter) {
+            clearTimeout(counter);
+          }
+          counter=setTimeout(func,timer);
+        }
+      }
+      function click() {
+        i++;
+        div.innerHTML = i;
+      }
+  </script>
+</body>
+</html>
