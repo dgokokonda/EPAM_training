@@ -31,7 +31,7 @@ var Calculator = function() {
     return result;
   };
 };
-
+ 
 function action() {
   var calc = new Calculator();
   var operands = ['', ''];
