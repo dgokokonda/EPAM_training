@@ -1,57 +1,57 @@
-var key = 'AIzaSyAdrZuFXlo3OoE2XXEH5d0smdoPhE6EKXk';
+var listContainer = document.getElementById('main');
 
-// Search by coordinates
-$('#AddrButton').on('click', function() {
-  var latLng = $('#LatLng')[0].value.split(',');
-  var result1 =
-    'https://maps.googleapis.com/maps/api/geocode/json?latlng=' +
-    latLng +
-    '&key=' +
-    key;
+var addToDo = document.createElement('input');
+addToDo.id = 'search';
+addToDo.setAttribute('placeholder', 'What needs to be done?');
+addToDo.setAttribute('value', '');
+listContainer.appendChild(addToDo);
+/*
+var li = document.createElement('div');
+li.innerHTML = '123';
+listContainer.appendChild(li);
 
-  $.ajax({
-    type: 'GET',
-    url: result1,
-    success: function(e) {
-      // Address output
-      var search = e.results[0].address_components;
-      var addrOutput = '<ul class="list-group">';
-      for (var i = 0; i < search.length; i++) {
-        addrOutput += `
-        <li class="list-group-item"><strong>${search[i].types[0]}</strong>: ${
-          search[i].long_name
-        }</li>
-      `;
-      }
-      addrOutput += '</ul>';
-      document.getElementById('address').innerHTML = addrOutput;
+var li = document.createElement('div');
+li.innerHTML = '456';
+listContainer.appendChild(li);*/
+function addTodo() {
+if (addTodo.value) {
+    if(keyCode === 13) {
+        var li = document.createElement('div');
+        li.innerHTML = addToDo.value;
+        listContainer.appendChild(li);
     }
-  });
-});
+}
+}
 
-// Search by address
-$('#GeoButton').on('click', function() {
-  var location = $('#Addr')[0].value.split(',');
-  var result2 =
-    'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-    location +
-    '&key=' +
-    key;
-
-  $.ajax({
-    type: 'GET',
-    url: result2,
-    success: function(e) {
-      // Coordinates output
-      var lat = e.results[0].geometry.location.lat;
-      var lng = e.results[0].geometry.location.lng;
-      var coordsOutput = `
-      <ul class="list-group">
-        <li class="list-group-item"><strong>Latitude</strong>: ${lat}</li>
-        <li class="list-group-item"><strong>Longitude</strong>: ${lng}</li>
-      </ul>
-    `;
-      document.getElementById('coords').innerHTML = coordsOutput;
+<form action="aaa.php" method="post"><textarea class="ctrlSubmit"></textarea></form>
+<form action="bbb.php" method="get"><textarea class="ctrlSubmit"></textarea></form>
+<script>
+var t = document.getElementsByTagName('textarea');
+var i = 0;while(t[i]){
+    if(/ctrlSubmit/.test(t[i].className)){
+        t[i].onkeyup = function(e){
+            e = window.event || e;
+            if(e.keyCode == 13 && e.ctrlKey){
+                alert(this.value);
+                //ну или this.form.submit();
+            }
+        }
     }
-  });
-});
+    ++i;
+}
+</script>
+
+/*window.onload = function() {
+
+    for (var a=0; a<5; a++) {
+        var li = document.createElement('div');
+        li.innerHTML.html = '111';
+        li.id = a+1;
+        listContainer.appendChild(li);
+
+    }
+}
+onload();*/
+//.cloneNode()
+
+//listContainer.removeChild(li);
