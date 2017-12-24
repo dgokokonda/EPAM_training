@@ -98,7 +98,6 @@ var showItem = function(e) {
 //функция для кнопки selectAll(+показ/скрытие кнопки):
 var allSelected = function() {
   var checkItems = document.querySelectorAll('.check');
-
   if (checkItems.length) {
     selectAll.style.display = 'block';
     if (selectAll.checked) {
