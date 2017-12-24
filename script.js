@@ -81,9 +81,8 @@ var showItem = function(e) {
   del.addEventListener('click', function deleteItem() {
     items.splice(items.indexOf(e), 1);
     this.parentElement.remove();
-    clearCompleted();
     itemsLeft();
-    allSelected();
+
   });
   del.id = 'del' + e.id;
   var icon = document.createElement('i');
