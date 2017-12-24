@@ -6,8 +6,9 @@ var active = document.getElementById('active');
 var all = document.getElementById('all');
 var clear = document.getElementById('clear');
 
-var items = [];
-var itemId = 1;
+var items = []; //хранилище данных
+var itemId = 1; //id для каждого item
+items = JSON.parse(localStorage.getItem('items')); //привязка localStorage
 
 var List = function(id, title, completed) {
   this.id = id;
@@ -18,13 +19,14 @@ var List = function(id, title, completed) {
 //добавление items:
 var addItem = function() {
   if (input[0].value === '' || event.keyCode != 13) return;
-  items.push(new List(itemId, input[0].value, false));
+  items.push(new List(itemId.toString(), input[0].value, false)); //применение конструктора для items
   itemId++;
   input[0].value = '';
   // вызов функции отображения добавленного item:
   showItem(items[items.length - 1]);
   //вызов функции-счетчика оставшихся активных item:
   itemsLeft();
+  storeDisplay();
 };
 
 // проверка статуса completed:
@@ -54,6 +56,7 @@ var statusItem = function() {
     }
   });
   itemsLeft();
+  storeDisplay();
 };
 
 //визуализация html-элементов:
@@ -82,7 +85,7 @@ var showItem = function(e) {
     items.splice(items.indexOf(e), 1);
     this.parentElement.remove();
     itemsLeft();
-
+    storeDisplay();
   });
   del.id = 'del' + e.id;
   var icon = document.createElement('i');
@@ -122,6 +125,7 @@ var allSelected = function() {
     clear.style.display = 'none';
   }
   itemsLeft();
+  storeDisplay();
 };
 
 //фильтр завершенных ToDo
@@ -169,15 +173,28 @@ var clearCompleted = function() {
         items.splice(i, 1);
       }
     }
-    //console.log(items);
   }
   if (!checkItems.length) {
     clear.style.display = 'none';
   }
-
   allSelected();
   itemsLeft();
   selectAll.checked = false;
+  storeDisplay();
+};
+
+//отображение дисплея со списком items:
+if (items == null) {
+  items = [];
+} else {
+  items.forEach(function(elem) {
+    showItem(elem);
+  });
+}
+//сохранение дисплея со списком items:
+var storeDisplay = function() {
+  var storage = JSON.stringify(items);
+  localStorage.setItem('items', storage);
 };
 
 //how many active items left:
