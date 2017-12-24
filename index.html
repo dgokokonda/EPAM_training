@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="main_page"
+        content="JavaScript ToDo List">
+    <meta charset="utf-8">
+    <title>ToDO List</title>
+    <link rel="stylesheet"
+        href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="font-awesome/css/font-awesome.min.css">
+</head>
+
+<body onkeydown='addItem()'
+    onload='itemsLeft()'>
+    <div class="container">
+        <h2>ToDO List</h2>
+        <div class="addForm">
+            <input class="select-all"
+                onclick="allSelected()"
+                type="checkbox">
+            <input type="text"
+                class="toDoText"
+                placeholder="Add new ToDo here...">
+        </div>
+
+        <div id="main">
+        </div>
+        <footer class="footer">
+            <div class="todo-count">
+                <span id="count"></span>
+                <span id="item"></span>
+            </div>
+            <ul class="filters">
+                <li>
+                    <a href="#"
+                        id="all"
+                        onclick="showAll()">All</a>
+                </li>
+                <li>
+                    <a href="#"
+                        id="active"
+                        onclick="showActive()">Active</a>
+                </li>
+                <li>
+                    <a href="#"
+                        id="complete"
+                        onclick="showCompleted()">Complete</a>
+                </li>
+                <li class="clear-completed">
+                    <a href="#"
+                        id="clear"
+                        onclick="clearCompleted()">Clear completed</a>
+                </li>
+            </ul>
+
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
