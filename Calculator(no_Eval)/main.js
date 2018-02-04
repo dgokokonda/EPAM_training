@@ -1,37 +1,37 @@
-var Calculator = function() {
+var Calculator = function () {
   var result = 0;
-  this.add = function(a) {
+  this.add = function (a) {
     result = parseInt(a);
-    return function(b) {
+    return function (b) {
       result += parseInt(b);
     };
   };
-  this.substract = function(a) {
+  this.substract = function (a) {
     result = parseInt(a);
-    return function(b) {
+    return function (b) {
       result -= parseInt(b);
     };
   };
-  this.multiply = function(a) {
+  this.multiply = function (a) {
     result = parseInt(a);
-    return function(b) {
+    return function (b) {
       result *= parseInt(b);
     };
   };
-  this.divide = function(a) {
+  this.divide = function (a) {
     result = parseInt(a);
-    return function(b) {
+    return function (b) {
       result /= parseInt(b);
     };
   };
-  this.reset = function() {
+  this.reset = function () {
     result = 0;
   };
-  this.getResult = function() {
+  this.getResult = function () {
     return result;
   };
 };
- 
+
 function action() {
   var calc = new Calculator();
   var operands = ['', ''];
@@ -105,20 +105,32 @@ function action() {
   keys[15].className = 'result';
   buttons.appendChild(keys[15]);
 
-  keys.forEach(function(elem) {
+  keys.forEach(function (elem) {
     elem.id = 'btn';
   });
 
-  keys.forEach(function(element, index) {
-    element.addEventListener('click', function(e) {
+  var operands = ['', ''];
+  var curOperands = 0;
+  var currentFunc = null;
+  var isOperator = true;
+
+  keys.forEach(function (element, index) {
+    element.addEventListener('click', function (e) {
       if (event.target.className === 'num') {
         isOperator = true;
         input.innerHTML += event.target.innerHTML;
         operands[curOperands] += event.target.innerHTML;
       }
+      else {
+        if (operands[1] !== '') {
+          currentFunc(operands[1]);
+          output.innerHTML = calc.getResult();
+          operands = [calc.getResult(), ''];
+        }
+      }
     });
   });
-  keys[10].addEventListener('click', function() {
+  keys[10].addEventListener('click', function () {
     if (isOperator) {
       if (operands[0] !== '') {
         currentFunc = calc.add(operands[0]);
@@ -126,9 +138,10 @@ function action() {
       input.innerHTML += event.target.innerHTML;
       curOperands = 1;
       isOperator = false;
+
     }
   });
-  keys[11].addEventListener('click', function() {
+  keys[11].addEventListener('click', function () {
     if (isOperator) {
       if (operands[0] !== '') {
         currentFunc = calc.substract(operands[0]);
@@ -138,7 +151,7 @@ function action() {
       isOperator = false;
     }
   });
-  keys[12].addEventListener('click', function() {
+  keys[12].addEventListener('click', function () {
     if (isOperator) {
       if (operands[0] !== '') {
         currentFunc = calc.multiply(operands[0]);
@@ -148,7 +161,7 @@ function action() {
       isOperator = false;
     }
   });
-  keys[13].addEventListener('click', function() {
+  keys[13].addEventListener('click', function () {
     if (isOperator) {
       if (operands[0] !== '') {
         currentFunc = calc.divide(operands[0]);
@@ -158,14 +171,16 @@ function action() {
       isOperator = false;
     }
   });
-  keys[15].addEventListener('click', function() {
-    currentFunc(operands[1]);
-    output.innerHTML = calc.getResult();
-    operands = [calc.getResult(), ''];
+  keys[15].addEventListener('click', function () {
+    if (operands[1] !== '') {
+      currentFunc(operands[1]);
+      output.innerHTML = calc.getResult();
+      operands = [calc.getResult(), ''];
+    }
     curOperands = 1;
     currentFunc = null;
   });
-  keys[14].addEventListener('click', function() {
+  keys[14].addEventListener('click', function () {
     currentFunc = calc.reset();
     input.innerHTML = '';
     output.innerHTML = '';
